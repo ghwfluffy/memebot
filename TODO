@@ -2,15 +2,17 @@ Discord Bot
 [ ] POC python discord bot
 [ ] Hook in slash commands
 Meme Generation
-[\] Overlay text on image POC
+[x] Overlay text on image POC
     [x] Text with border
-    [ ] Wrapping text algorithm
+    [x] Wrapping text algorithm
 [x] Design prompts
     - Fit the following statement into a meme category: %s
-    - Discect the statement at the bottom into the following fields.
+    - Dissect the statement at the bottom into the following fields.
         1. Subject: The subject that is covetting something
         2. New Thing: The thing that is being covetted
         3. The thing being cast asside, forgotten, replaced
+
+        i like my diet but man do i love burgers more
 
         %s
 [x] Decide training data

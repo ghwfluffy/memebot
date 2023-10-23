@@ -1,5 +1,44 @@
 import openai
 
+with open("secrets/openai.txt", "r") as file:
+    openai.api_key = file.read().strip()
+
+statement = "the new season of rick and morty sucks"
+
+prompt = """
+    Dissect the statement at the bottom into the following fields.
+    Each answer should be 1 to 5 words long.
+    If one field is not mentioned in the statement, infer what it would be in relation to the other fields.
+        1. Subject: The subject that is covetting something
+        2. New Thing: The thing that is being covetted
+        3. Old Thing: The thing being cast asside, forgotten, replaced
+
+"""
+prompt += statement
+
+messages = [
+    {"role": "user", "content": prompt},
+]
+
+model = "gpt-3.5-turbo"
+response = openai.ChatCompletion.create(model=model, messages=messages, max_tokens=50)
+
+generated_text = response.choices[0].message.content.strip()
+
+lines = generated_text.split("\n")
+filler_text = []
+for line in lines:
+    field = line.split(":")[0].strip()
+    field = " ".join(field.split(" ")[1:])
+    answer = ":".join(line.split(":")[1:])
+    filler_text.append({
+        "field": field,
+        "text": answer
+    })
+
+
+
+
 from PIL import Image, ImageDraw, ImageFont
 import textwrap
 
@@ -36,7 +75,7 @@ texts = [
     },
 ]
 
-filler_text = [
+filler_text_static = [
     {
         "field": "New Thing",
         "text": "I very much like burgers they are very good and tasty",

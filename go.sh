@@ -1,5 +1,6 @@
 #!/bin/bash
 
 source Venv.source
-python ./test.py
+python ./dalle.py
+#python ./test.py
 

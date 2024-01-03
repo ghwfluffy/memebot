@@ -20,7 +20,8 @@ Meme Generation
         - Choose category
         - Discect statement
     - Teach it all of the different possible categories for memes (IE: COVET=...)
-[ ] Dalle POC
+[\] Dalle POC
+    [ ] Download image
 Meme Library
 [x] Decide data model
     - Name
